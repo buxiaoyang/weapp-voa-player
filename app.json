@@ -1,0 +1,11 @@
+{
+  "pages":[
+    "pages/player/player"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#3888F9",
+    "navigationBarTitleText": "VOA播放器",
+    "navigationBarTextStyle":"white"
+  }
+}

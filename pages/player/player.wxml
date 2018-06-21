@@ -1,0 +1,24 @@
+<view class="container">
+    <view class="music-album">
+        <view class="song-name">
+            <text>{{ songName }}</text>   
+        </view>
+        <view class="song-lyric">
+            
+        </view>  
+    </view>
+    <view class="music-ctrl">
+        <view class="m-progress">
+            <text style="" class="left">{{cpTime}}</text>
+            <progress percent="{{ musicPg }}" color="red" stroke-width="4" class="progress"/>
+            <text style="font-size: 12px;color:#fff" class="right">{{duration}}</text>
+        </view>
+        <view class="m-control">
+            <view class="m-control-button">
+                <image src="/asset/icon-prev.png" bindtap="clickPrev"/>
+                <image class="play" src="/asset/icon-{{ status === 'pause' ? 'play' : 'pause' }}.png" bindtap="clickPlay"/>
+                <image src="/asset/icon-next.png"/>
+            </view>
+        </view>
+    </view>
+</view>
