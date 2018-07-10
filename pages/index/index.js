@@ -108,7 +108,7 @@ Page({
         }
     },
 
-    movePrevious: function(){
+    moveNext: function(){
         var that = this;
         var itemIndex = that.data.itemIndex;
         itemIndex ++;
@@ -130,7 +130,7 @@ Page({
         });
     },
 
-    moveNext: function(){
+    movePrevious: function(){
         var that = this;
         var itemIndex = that.data.itemIndex;
         itemIndex--;
