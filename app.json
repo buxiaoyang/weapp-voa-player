@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/player/player"
+    "pages/index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
