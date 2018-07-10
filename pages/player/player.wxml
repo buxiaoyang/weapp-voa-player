@@ -1,10 +1,16 @@
 <view class="container">
     <view class="music-album">
         <view class="song-name">
-            <text>{{ songName }}</text>   
+            <text>{{items[itemIndex].title}}</text>   
         </view>
+        <view class="song-date">
+            <text>{{items[itemIndex].date}}</text>
+        </view>  
         <view class="song-lyric">
-            
+            <text>{{items[itemIndex].content}}</text>
+        </view>
+        <view class="song-cpright">
+            <text>音频文件来自http://www.51voa.com/</text>
         </view>  
     </view>
     <view class="music-ctrl">

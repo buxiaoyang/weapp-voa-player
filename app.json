@@ -5,7 +5,8 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#3888F9",
-    "navigationBarTitleText": "VOA播放器",
-    "navigationBarTextStyle":"white"
+    "navigationBarTitleText": "VOA英语播放器",
+    "navigationBarTextStyle":"white",
+    "disableScroll":true
   }
 }
