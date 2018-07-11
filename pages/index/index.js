@@ -1,4 +1,6 @@
 
+var interval;
+
 Page({
     data:{
         cpTime: '00:00',
@@ -11,6 +13,17 @@ Page({
 
     onLoad:function(param) {
         this.loadData();
+    },
+
+    onShow: function () {
+        var that = this;
+        console.log("onShow called " + new Date());
+        clearInterval(interval);
+        interval = setInterval(that.refreshStatus, 1000); 
+    },
+    onHide: function () {
+        console.log("onHide called " + new Date());
+        clearInterval(interval);
     },
 
     loadData: function()
@@ -71,41 +84,41 @@ Page({
                 title: that.data.items[that.data.itemIndex].title      
             });
             that.setData({ isPlaying: true });
-            setInterval(function(){
-                wx.getBackgroundAudioPlayerState({
-                    success: function (res) {
-                        if (res.currentPosition && res.duration)
-                        {
-                            if (res.status == 1) {
-                                that.setData({ isPlaying: true });
-                            }
-                            else {
-                                that.setData({ isPlaying: false });
-                            }
-                            var cpTimeMin = parseInt(res.currentPosition / 60);
-                            cpTimeMin = cpTimeMin < 10 ? "0" + cpTimeMin : cpTimeMin;
-                            var cpTimeSec = parseInt(res.currentPosition % 60);
-                            cpTimeSec = cpTimeSec < 10 ? "0" + cpTimeSec : cpTimeSec;
-                            that.setData({ cpTime: cpTimeMin + ":" + cpTimeSec });
-                            var durationMin = parseInt(res.duration / 60);
-                            durationMin = durationMin < 10 ? "0" + durationMin : durationMin;
-                            var durationSec = parseInt(res.duration % 60);
-                            durationSec = durationSec < 10 ? "0" + durationSec : durationSec;
-                            that.setData({ duration: durationMin + ":" + durationSec });
-                            if (res.duration > 0)
-                            {
-                                that.setData({ musicPg: res.currentPosition / res.duration * 100});
-                            }
-                            //if end of play then next
-                            if (res.currentPosition > res.duration - 3 )
-                            {
-                                that.moveNext();
-                            }
-                        }   
-                    }
-                })
-            }, 1000); 
+            //interval = setInterval(that.refreshStatus, 1000); 
         }
+    },
+
+    refreshStatus: function(){
+        var that = this;
+        wx.getBackgroundAudioPlayerState({
+            success: function (res) {
+                if (res.currentPosition && res.duration) {
+                    if (res.status == 1) {
+                        that.setData({ isPlaying: true });
+                    }
+                    else {
+                        that.setData({ isPlaying: false });
+                    }
+                    var cpTimeMin = parseInt(res.currentPosition / 60);
+                    cpTimeMin = cpTimeMin < 10 ? "0" + cpTimeMin : cpTimeMin;
+                    var cpTimeSec = parseInt(res.currentPosition % 60);
+                    cpTimeSec = cpTimeSec < 10 ? "0" + cpTimeSec : cpTimeSec;
+                    that.setData({ cpTime: cpTimeMin + ":" + cpTimeSec });
+                    var durationMin = parseInt(res.duration / 60);
+                    durationMin = durationMin < 10 ? "0" + durationMin : durationMin;
+                    var durationSec = parseInt(res.duration % 60);
+                    durationSec = durationSec < 10 ? "0" + durationSec : durationSec;
+                    that.setData({ duration: durationMin + ":" + durationSec });
+                    if (res.duration > 0) {
+                        that.setData({ musicPg: res.currentPosition / res.duration * 100 });
+                    }
+                    //if end of play then next
+                    if (res.currentPosition > res.duration - 3) {
+                        that.moveNext();
+                    }
+                }
+            }
+        })
     },
 
     moveNext: function(){
