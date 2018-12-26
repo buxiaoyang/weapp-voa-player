@@ -1,11 +1,12 @@
 <view class="container">
-    <view style="padding-top:200rpx;">
+    <view style="padding-top:150rpx;">
         <view style="text-align:center;">
             <image style="width:250rpx; height:250rpx;" src='/asset/voa-logo.jpg'/>
         </view>
-         <view style="padding-top:100rpx;">
+         <view style="padding-top:70rpx;">
         <button type="primary" style="margin-bottom:50rpx; width: 400rpx;" bindtap="standard">VOA常速英语</button>
-        <button type="primary" style="width: 400rpx;" bindtap="special">VOA慢速英语</button>
+        <button type="primary" style="margin-bottom:50rpx; width: 400rpx;" bindtap="special">VOA慢速英语</button>
+        <button type="primary" style="width: 400rpx;" open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="comment">留言</button>
         </view>
     </view>
    

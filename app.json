@@ -1,14 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/standard/index",
-    "pages/special/index"
+    "pages/special/index",
+    "pages/comment/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3888F9",
     "navigationBarTitleText": "VOA英语播放器",
-    "navigationBarTextStyle":"white",
-    "disableScroll":true
+    "navigationBarTextStyle": "white",
+    "disableScroll": false
   }
 }

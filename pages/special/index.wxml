@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container page">
     <view class="music-album">
         <view class="song-name">
             <text>{{items[itemIndex].title}}</text>   

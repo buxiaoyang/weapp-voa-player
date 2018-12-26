@@ -1,0 +1,24 @@
+/* pages/comment/index.wxss */
+.user-icon
+{
+  width:50rpx;
+  height:50rpx;
+  float:left;
+}
+.comment-title
+{
+  line-height:50rpx;
+  margin-left:20rpx;
+  float:left;
+}
+
+.weui-btn{
+  margin:30rpx;
+}
+
+.weui-media-box__desc_c {
+  color:#999;
+  font-size:13px;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+}
