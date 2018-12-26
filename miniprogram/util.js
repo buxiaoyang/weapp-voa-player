@@ -95,14 +95,4 @@ var showModel = (title, content) => {
   })
 }
 
-// 显示失败提示
-var showModel = (title) => {
-  wx.hideToast();
-
-  wx.showModal({
-    title,
-    showCancel: false
-  })
-}
-
 module.exports = { getUUID, formatTime, formatTimeMinute, formatDate, formatDateEN, formatDateEN2CH, Date1MinusData2, showBusy, showSuccess, showFail, showModel }

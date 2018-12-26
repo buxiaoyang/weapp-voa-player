@@ -11,29 +11,27 @@
       </view>
       <button class="weui-btn" type="primary" bindtap="saveComment">留言</button>
       <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__hd">所有留言：</view>
-            <view class="weui-panel__bd">
-                <view class="weui-media-box weui-media-box_text">
-                    <view class="weui-media-box__title weui-media-box__title_in-text">
-                      <image class="user-icon" src="/asset/user.png" />
-                      <view class="comment-title">-旸-</view>
-                    </view>
-                    <view class="weui-media-box__desc_c">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。有一定的形状，有自己的运行轨道。有一定的形状，有自己的运行轨道。有一定的形状，有自己的运行轨道</view>
-                    <view class="weui-media-box__info">
-                        <view class="weui-media-box__info__meta">2018年12月26日 18时26分</view>
-                    </view>
+        <view class="weui-panel__hd">所有留言：</view>
+        <view class="weui-panel__bd">
+            <view wx:for="{{comments}}"  wx:key="*this" class="weui-media-box weui-media-box_text">
+                <view class="weui-media-box__title weui-media-box__title_in-text">
+                  <image class="user-icon" src="{{item.createdBy.avatarUrl}}" />
+                  <view class="comment-title">{{item.createdBy.nickName}}</view>
                 </view>
-                <view class="weui-media-box weui-media-box_text">
-                    <view class="weui-media-box__title weui-media-box__title_in-text">
-                      <image class="user-icon" src="/asset/user.png" />
-                      <view class="comment-title">标题一</view>
-                    </view>
-                    <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
-                    <view class="weui-media-box__info">
-                        <view class="weui-media-box__info__meta">2018年12月26日 18时26分</view>
-                    </view>
+                <view class="weui-media-box__desc_c">{{item.comment}}</view>
+                <view class="weui-media-box__info">
+                    <view class="weui-media-box__info__meta">{{item.created}}</view>
                 </view>
             </view>
         </view>
     </view>
+    
+    <view wx:if="{{loadingMoreData}}" class="weui-loadmore">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+      <view wx:if="{{noMoreData}}" class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多数据</view>
+    </view>
+  </view>
 </view>

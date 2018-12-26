@@ -18,7 +18,9 @@
 
 .weui-media-box__desc_c {
   color:#999;
-  font-size:13px;
   display:-webkit-box;
   -webkit-box-orient:vertical;
+  font-weight:400;
+  font-size:17px;
+
 }

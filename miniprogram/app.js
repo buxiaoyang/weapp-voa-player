@@ -7,6 +7,8 @@ App({
     } else {
       wx.cloud.init({
         traceUser: true,
+        env:'weapp-voa-player-54d7e9'
+        //env: 'test-voa-player-e66abe'
       })
     }
 
